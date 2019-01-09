@@ -12,5 +12,7 @@ public interface Field {
      */
     public String getName();
 
+    public String test();
+
 
 }
