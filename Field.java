@@ -22,7 +22,4 @@ public class Field {
         return name;
     }
 
-    public String test();
-
-
 }
