@@ -5,29 +5,27 @@ public class RobotLogger {
     private Logger mainLogger = Logger.getLogger(RobotLogger.class.getName());
 
     /**
-     * Flushes all logged updates to a file.
+     * Accesses the raw logger and makes a statement with a timestamp.
+     * @param message The message to log
+     * @param messageLevel The level of the message to log.
      */
-    public void flush() {
-        
-    }
-
-    private void createRawEntry(String message, Level messageLevel) 
-    {
-        mainLogger.log(messageLevel, "[" + getTimestampString() + "]" + message);
-    }
-    //XXX - Should return the match time, not epoch time.
-    private String getTimestampString() {
-        return Long.toString(System.currentTimeMillis());
-    }
+    
     /**
-     * Logs a raw message to the console
+     * Logs a message to the log
      * @param message The message to log
      * @param messageLevel The level of the message to log.
      */
     public void logMessage(String message, Level messageLevel) {
-        createRawEntry("[MESSAGE] " + message, messageLevel);
+        mainLogger.log(messageLevel,message);
     }
 
+    /**
+     * Adds a handler to the logger.
+     * @param h
+     */
+    public void addHandler(Handler h) {
+        mainLogger.addHandler(h);
+    }
     /**
      * Sets the level of messages to be logged.
      * @param newLevel The level in question.
@@ -36,4 +34,10 @@ public class RobotLogger {
         mainLogger.setLevel(newLevel);
     }
 
+    /**
+     * Flushes all logged updates to a file.
+     */
+    public void flush() {
+
+    }
 }
