@@ -8,6 +8,7 @@ public class Field {
         name = name_;
     }
     /**
+     * This method is useless.
      * @return Returns a string representation of the field
      */
     public String toString() {

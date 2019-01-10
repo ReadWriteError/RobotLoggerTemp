@@ -1,6 +1,6 @@
 public class StringField extends Field {
 
-    public String value;
+    private String value;
 
     /**
      * @param name The name of the field
@@ -8,6 +8,7 @@ public class StringField extends Field {
      */
     public StringField(String name, String val) {
         super(name);
+        value = val;
     }
 
     /**
