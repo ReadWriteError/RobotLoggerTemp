@@ -38,21 +38,60 @@ public class RobotLogger {
     }
 
     /**
-     * Adds a field to the logger.
+     * Adds a field of any type to the logger.
      * @param f The field to log.
      */
-    public void createItem(Field f) {
+    public void createField(Field f) {
         itemMap.put(f.getName(), f);
     }
 
     /**
-     * Creates a new double field
+     * Creates or changes a new double field
      * @param name The name of the field
      * @param value The initial value of the field
      * @param level The priority of the field
      */
-    public void createDoubleField(String name, double value, Level level) {
+    public void createDoubleField(String name, Level level) {
+        itemMap.put(name, new DoubleField(name, 0.0, level));
+    }
 
+    /**
+     * Creates or changes a new boolean field
+     * @param name The name of the field
+     * @param value The initial value of the field
+     * @param level The priority of the field
+     * @param message 
+     */
+    public void createBoolField(String name,  Level level) {
+        itemMap.put(name, new BooleanField(name, false, level));
+    }
+
+    /**
+     * Creates or changes a new integer field
+     * @param name The name of the field
+     * @param value The initial value of the field
+     * @param level The priority of the field
+     */
+    public void createIntegerField(String name, Level level) {
+        itemMap.put(name, new IntegerField(name, 0, level));
+    }
+
+    /**
+     * Creates or changes a new String field
+     * @param name The name of the field
+     * @param value The initial value of the field
+     * @param level The priority of the field
+     */
+    public void createStringField(String name, Level level) {
+        itemMap.put(name, new StringField(name, "", level));
+    }
+
+    public void setDoubleField(String name, double value, String message) {
+        Field f = itemMap.get(name);
+        if (f instanceof DoubleField) {
+            DoubleField df = (DoubleField)f;
+            
+        }
     }
     /**
      * Flushes all logged updates to a file.
