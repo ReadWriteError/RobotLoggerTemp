@@ -1,9 +1,10 @@
+import java.util.logging.Level;
 public class BooleanField extends Field {
 
     private boolean value;
 
-    public BooleanField(String name, boolean val) {
-        super(name);
+    public BooleanField(String name, boolean val, Level level) {
+        super(name, level);
         value = val;
     }
 

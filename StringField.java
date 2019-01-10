@@ -1,3 +1,5 @@
+import java.util.logging.Level;
+
 public class StringField extends Field {
 
     private String value;
@@ -6,8 +8,8 @@ public class StringField extends Field {
      * @param name The name of the field
      * @param val The value to set it to
      */
-    public StringField(String name, String val) {
-        super(name);
+    public StringField(String name, String val, Level level) {
+        super(name, level);
         value = val;
     }
 

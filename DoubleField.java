@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.logging.Level;
 
 public class DoubleField extends Field {
 
@@ -12,8 +13,8 @@ public class DoubleField extends Field {
      * @param name The name of the field
      * @param val The value to set it to.
      */
-    public DoubleField(String name, double val) {
-        super(name);
+    public DoubleField(String name, double val, Level level) {
+        super(name, level);
         value = val;
     }
     /**

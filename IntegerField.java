@@ -1,9 +1,10 @@
+import java.util.logging.Level;
 public class IntegerField extends Field {
 
     private int value;
 
-    public IntegerField(String name, int val) {
-        super(name);
+    public IntegerField(String name, int val, Level level) {
+        super(name, level);
         value = val;
     }
 

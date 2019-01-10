@@ -1,11 +1,15 @@
+import java.util.logging.Level;
 
 public class Field {
     
     private String name; 
 
-    protected Field(String name_) 
+    private Level fieldLevel = Level.INFO;
+
+    protected Field(String name_, Level level) 
     {
         name = name_;
+        fieldLevel = level;
     }
     /**
      * This method is useless.
@@ -21,6 +25,10 @@ public class Field {
      */
     public final String getName() {
         return name;
+    }
+
+    public final Level getLevel() {
+        return fieldLevel;
     }
 
 }
