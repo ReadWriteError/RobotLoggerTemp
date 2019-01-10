@@ -19,6 +19,12 @@ public class StringField extends Field {
     public String toString() {
         return value;
     }
-
-
+    
+    /**
+     * Changes the current value
+     * @param val The new value to set
+     */
+    public void setValue(String val) {
+        value = val;
+    }
 }

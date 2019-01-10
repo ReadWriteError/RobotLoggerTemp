@@ -24,4 +24,12 @@ public class DoubleField extends Field {
     public String toString() {
         return df.format(value);
     }
+    
+    /**
+     * Changes the current value
+     * @param val The new value to set
+     */
+    public void setValue(double val) {
+        value = val;
+    }
 }

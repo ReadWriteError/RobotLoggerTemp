@@ -14,4 +14,12 @@ public class IntegerField extends Field {
     public String toString() {
         return Integer.toString(value);
     }
+    
+    /**
+     * Changes the current value
+     * @param val The new value to set
+     */
+    public void setValue(int val) {
+        value = val;
+    }
 }
