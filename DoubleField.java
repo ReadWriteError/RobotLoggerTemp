@@ -21,6 +21,7 @@ public class DoubleField extends Field {
      * Returns a formatted decimal
      * @return The formatted decimal.
      */
+    @Override
     public String toString() {
         return df.format(value);
     }

@@ -11,6 +11,7 @@ public class BooleanField extends Field {
     /**
      * @return The value of the boolean as a string.
      */
+    @Override
     public String toString() {
         return Boolean.toString(value);
     }
