@@ -13,6 +13,13 @@ public class RobotLogger {
      * @param messageLevel The level of the message to log.
      */
     
+     /**
+      * Gets a string timestamp
+      * @return the timestamp as a string
+      */
+     private String getTimestampString() {
+        return Long.toString(System.currentTimeMillis());
+     }
     /**
      * Logs a message to the log
      * @param message The message to log
@@ -86,15 +93,73 @@ public class RobotLogger {
         itemMap.put(name, new StringField(name, "", level));
     }
 
-    public void setDoubleField(String name, double value, String message) {
+    /**
+     * Sets a field to a value with an optional log message.
+     * @param name The name of the field you are setting.
+     * @param value The value to set the field to
+     */
+    public void setDoubleField(String name, double value) {
         Field f = itemMap.get(name);
         if (f instanceof DoubleField) {
             DoubleField df = (DoubleField)f;
-            
+            df.setValue(value);
+            logMessage("[VAR]" + "[" + name + "]" + "[" + getTimestampString() + "] " + df.toString() + "\n", df.getLevel());
         }
     }
     /**
-     * Flushes all logged updates to a file.
+     * Sets a field to a value with an optional log message.
+     * @param name The name of the field you are setting.
+     * @param value The value to set the field to
+     */
+    public void setBoolField(String name, Boolean value) {
+        Field f = itemMap.get(name);
+        if (f instanceof BooleanField) {
+            BooleanField df = (BooleanField)f;
+            df.setValue(value);
+            logMessage("[VAR]" + "[" + name + "]" + "[" + getTimestampString() + "] " + df.toString() + "\n", df.getLevel());
+        }
+    }
+    /**
+     * Sets a field to a value with an optional log message.
+     * @param name The name of the field you are setting.
+     * @param value The value to set the field to
+     */
+    public void setStringField(String name, String value) {
+        Field f = itemMap.get(name);
+        if (f instanceof BooleanField) {
+            StringField df = (StringField)f;
+            df.setValue(value);
+            logMessage("[VAR]" + "[" + name + "]" + "[" + getTimestampString() + "] " + df.toString() + "\n", df.getLevel());
+        }
+    }
+    /**
+     * Sets a field to a value with an optional log message.
+     * @param name The name of the field you are setting.
+     * @param value The value to set the field to
+     */
+    public void setIntegerField(String name, int value) {
+        Field f = itemMap.get(name);
+        if (f instanceof IntegerField) {
+            IntegerField df = (IntegerField)f;
+            df.setValue(value);
+            logMessage("[VAR]" + "[" + name + "]" + "[" + getTimestampString() + "] " + df.toString() + "\n", df.getLevel());
+        }
+    }
+
+    /**
+     * Changes the level of a field
+     * @param name The name of the field you are changing
+     * @param level The level to change it to
+     */
+    public void setFieldLevel(String name, Level level) {
+        itemMap.get(name).setLevel(level);
+    }
+
+    public Field getField(String name) {
+        return itemMap.get(name);
+    }
+    /**
+     * Flushes all logged updates to a file
      */
     public void flush() {
 

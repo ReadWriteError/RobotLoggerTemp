@@ -27,6 +27,10 @@ public class Field {
         return name;
     }
 
+    public void setLevel(Level level) {
+        fieldLevel = level;
+    }
+
     public final Level getLevel() {
         return fieldLevel;
     }
