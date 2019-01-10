@@ -14,4 +14,12 @@ public class BooleanField extends Field {
     public String toString() {
         return Boolean.toString(value);
     }
+
+    /**
+     * Changes the current value
+     * @param val The new value to set
+     */
+    public void setValue(boolean val) {
+        value = val;
+    }
 }
