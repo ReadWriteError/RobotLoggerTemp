@@ -126,7 +126,7 @@ public class RobotLogger {
      */
     public void setStringField(String name, String value) {
         Field f = itemMap.get(name);
-        if (f instanceof BooleanField) {
+        if (f instanceof StringField) {
             StringField df = (StringField)f;
             df.setValue(value);
             logMessage("[VAR]" + "[" + name + "]" + "[" + getTimestampString() + "] " + df.toString() + "\n", df.getLevel());
